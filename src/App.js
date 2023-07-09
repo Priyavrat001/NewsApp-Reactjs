@@ -8,7 +8,7 @@ export default class App extends Component {
     return (
       <div>
         <News/>
-        <Newscard title="title" description= "description"/>
+        <Newscard />
       </div>
     )
   }
