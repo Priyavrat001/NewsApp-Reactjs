@@ -9,13 +9,13 @@ export default class App extends Component {
         <BrowserRouter>
         <News/>
         <Routes>
-          <Route path="/" element={<Newscard pageSize={6} country="in" category="general"/>}></Route>
-          <Route path="/business" element={<Newscard pageSize={6} country="in" category="business"/>}></Route>
-          <Route path="/science" element={<Newscard pageSize={6} country="in" category="science"/>}></Route>
-          <Route path="/sports" element={<Newscard pageSize={6} country="in" category="sports"/>}></Route>
-          <Route path="/health" element={<Newscard pageSize={6} country="in" category="health"/>}></Route>
-          <Route path="/techenology" element={<Newscard pageSize={6} country="in" category="techenology"/>}></Route>
-          <Route path="/entertainment" element={<Newscard pageSize={6} country="in" category="entertainment"/>}></Route>
+          <Route exact path="/" element={<Newscard key="general" pageSize={6} country="in" category="general"/>}></Route>
+          <Route exact path="/business" element={<Newscard key="business" pageSize={6} country="in" category="business"/>}></Route>
+          <Route exact path="/science" element={<Newscard key="science" pageSize={6} country="in" category="science"/>}></Route>
+          <Route exact path="/sports" element={<Newscard key="sports" pageSize={6} country="in" category="sports"/>}></Route>
+          <Route exact path="/health" element={<Newscard key="health" pageSize={6} country="in" category="health"/>}></Route>
+          <Route exact path="/techenology" element={<Newscard key="techenology" pageSize={6} country="in" category="techenology"/>}></Route>
+          <Route exact path="/entertainment" element={<Newscard key="entertainment" pageSize={6} country="in" category="entertainment"/>}></Route>
         </Routes>
         </BrowserRouter>
       </div>
