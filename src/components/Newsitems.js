@@ -13,7 +13,7 @@ export default class Newsitems extends Component {
                         <h5 className="card-title">{title}...</h5>
                         <p className="card-text">{description}...</p>
                         <p className="card-text"><small className="text-body-secondary">By {!author? "Unknown":author} on {!date? "Unknown":new Date(date).toGMTString()}</small></p>
-                        <a href={newsUrl} target='_blank' rel='noreferre' className="btn btn-sm btn-primary">Read More</a>
+                        <a href={newsUrl} target='_blank'  rel="noreferrer" className="btn btn-sm btn-primary">Read More</a>
                     </div>
                 </div>
             </div>

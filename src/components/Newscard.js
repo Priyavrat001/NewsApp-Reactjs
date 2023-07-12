@@ -16,39 +16,44 @@ export default class Newscards extends Component {
             totalResults: parseData.totalResults,
             loading: false
         })
-    };
-    handelPrev = async () => {
-        // No use any more of this code.Wrap in a function
-
-        // let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=0bd0cc492b274ad499dd7766145b6aac&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
-        // this.setState({ loading: true })
-        // let data = await fetch(url)
-        // let parseData = await data.json()
-        // this.setState({
-        //     page: this.state.page - 1,
-        //     articles: parseData.articles,
-        //     loading: false
-        // })
-        this.setState({ page: this.state.page - 1 })
-        this.updateNews()
     }
-    handelNext = async () => {
-        // No use any more of this code.Wrap in a function
+    // Remove the previous button
 
-        // if (!(this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize))) {
-        //     this.setState({ loading: true })
-        //     let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=0bd0cc492b274ad499dd7766145b6aac&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
-        //     let data = await fetch(url)
-        //     let parseData = await data.json()
-        //     this.setState({
-        //         page: this.state.page + 1,
-        //         articles: parseData.articles,
-        //         loading: false
-        //     })
-        // }
-        this.setState({ page: this.state.page + 1 })
-        this.updateNews()
-    }
+    // handelPrev = async () => {
+        //     // No use any more of this code.Wrap in a function
+
+    //     // let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=0bd0cc492b274ad499dd7766145b6aac&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
+    //     // this.setState({ loading: true })
+    //     // let data = await fetch(url)
+    //     // let parseData = await data.json()
+    //     // this.setState({
+    //     //     page: this.state.page - 1,
+    //     //     articles: parseData.articles,
+    //     //     loading: false
+    //     // })
+    //     this.setState({ page: this.state.page - 1 })
+    //     this.updateNews()
+    // }
+
+   // Remove the previous button
+
+    // handelNext = async () => {
+        //     // No use any more of this code.Wrap in a function
+
+    //     // if (!(this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize))) {
+    //     //     this.setState({ loading: true })
+    //     //     let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=0bd0cc492b274ad499dd7766145b6aac&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
+    //     //     let data = await fetch(url)
+    //     //     let parseData = await data.json()
+    //     //     this.setState({
+    //     //         page: this.state.page + 1,
+    //     //         articles: parseData.articles,
+    //     //         loading: false
+    //     //     })
+    //     // }
+    //     this.setState({ page: this.state.page + 1 })
+    //     this.updateNews()
+    // }
     upperCase = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1)
     }
@@ -65,6 +70,7 @@ export default class Newscards extends Component {
     // this function update the api in previous and next buttons whithout using the code above.
 
     updateNews = async () => {
+        this.props.setProgress(10);
         let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=0bd0cc492b274ad499dd7766145b6aac&page=${this.state.page}&pageSize=${this.props.pageSize}`
         this.setState({ loading: true })
         let data = await fetch(url)
@@ -74,6 +80,7 @@ export default class Newscards extends Component {
             totalResults: parseData.totalResults,
             loading: false
         })
+        this.props.setProgress(100);
     }
 
     async componentDidMount() {
